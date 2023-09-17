@@ -7,6 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Home\NovaPasta1\**" />
+    <Compile Remove="Views\Home\NovaPasta2\**" />
+    <Compile Remove="Views\Home\NovaPasta\**" />
+    <Content Remove="Views\Home\NovaPasta1\**" />
+    <Content Remove="Views\Home\NovaPasta2\**" />
+    <Content Remove="Views\Home\NovaPasta\**" />
+    <EmbeddedResource Remove="Views\Home\NovaPasta1\**" />
+    <EmbeddedResource Remove="Views\Home\NovaPasta2\**" />
+    <EmbeddedResource Remove="Views\Home\NovaPasta\**" />
+    <None Remove="Views\Home\NovaPasta1\**" />
+    <None Remove="Views\Home\NovaPasta2\**" />
+    <None Remove="Views\Home\NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.21" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.21">
       <PrivateAssets>all</PrivateAssets>
