@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Lista de Tarefas</h1>
 
 <p>
     <a type="button" asp-action="Create" class="btn btn-primary">Criar nova tarefa</a>
@@ -32,9 +32,8 @@
             </td>
             <td>
                 <a type="button" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Editar</a>
-                <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Apagar</a>
+                <a type="button" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Apagar</a>
+                <a type="button" asp-action="Details" asp-route-id="@item.ID" class="btn btn-info">Detalhes</a>
             </td>
         </tr>
 }
