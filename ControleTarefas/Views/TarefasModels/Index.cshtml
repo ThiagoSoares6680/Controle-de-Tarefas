@@ -30,7 +30,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Tarefa)
             </td>
-            <td>
+            <td class="ml-2">
                 <a type="button" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Editar</a>
                 <a type="button" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Apagar</a>
                 <a type="button" asp-action="Details" asp-route-id="@item.ID" class="btn btn-info">Detalhes</a>
