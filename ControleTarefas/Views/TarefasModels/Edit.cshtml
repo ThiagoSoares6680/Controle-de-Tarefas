@@ -4,17 +4,15 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Editar Tarefa</h1>
-
-<h4>TarefasModel</h4>
+<h1 class="d-flex justify-content-center">Editar Tarefa</h1>
 <hr />
-<div class="row">
+<div class="d-flex justify-content-center">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID" />
             <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
+                <label asp-for="Nome" class="control-label">Título</label>
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
@@ -23,15 +21,12 @@
                 <input asp-for="Tarefa" class="form-control" />
                 <span asp-validation-for="Tarefa" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="p-3 text-center form-group">
+                <button type="submit" value="Save" class="btn btn-primary">Salvar</button>
+                <a asp-action="Index" type="button" class="btn btn-secondary">Voltar</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
