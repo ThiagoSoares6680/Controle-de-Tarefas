@@ -22,8 +22,8 @@
                 <span asp-validation-for="Tarefa" class="text-danger"></span>
             </div>
             <div class="p-3 text-center form-group">
-                    <input type="submit" value="Criar" class="btn btn-primary w-25" />
-                    <a asp-action="Index" class="btn btn-secondary mx-2 w-25">Limpar</a>
+                <input type="submit" value="Criar" class="btn btn-primary w-25" />
+                <a class="btn btn-secondary mx-2 w-25" onclick="limparCaixa()">Limpar</a>
             </div>
         </form>
     </div>
@@ -33,3 +33,12 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<script>
+    function limparCaixa() {
+        // Seleciona a caixa de texto pelo ID
+        var caixaDeTexto = document.getElementById('exampleFormControlTextarea1');
+
+        // Define o conteúdo da caixa de texto como vazio
+        caixaDeTexto.value = '';
+    }
+</script>
