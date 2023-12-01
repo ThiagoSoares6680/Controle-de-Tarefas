@@ -1,25 +1,41 @@
-﻿@{
+﻿@model IEnumerable<ControleTarefas.Models.TarefasModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-2">Bem-vindo ao nosso projeto.</h1>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <h3>Diagrama de caso de uso</h3>
-                <a class="navbar-brand" href="#">
-                    <img src="~/assets/Caso de uso.drawio.jpg" alt="Logo" class="img-fluid" width="900" height="400">
-                </a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <h3>Diagrama de caso de uso</h3>
-                <a class="navbar-brand" href="#">
-                    <img src="~/assets/Classes.jpg" alt="Logo" class="img-fluid" width="900" height="400">
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+<h1 class="d-flex justify-content-center p-3">Tarefas Concluidas</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarefa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if(item.StatusTarefa == 1)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tarefa)
+                    </td>
+                    <td class="ml-2">
+                        <a type="button" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Editar</a>
+                        <a type="button" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Apagar</a>
+                        <a type="button" asp-action="Details" asp-route-id="@item.ID" class="btn btn-info">Detalhes</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

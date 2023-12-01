@@ -1,21 +1,24 @@
-﻿using ControleTarefas.Models;
+﻿using ControleTarefas.Data;
+using ControleTarefas.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace ControleTarefas.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ControleTarefasContext _context;
+        public HomeController(ControleTarefasContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return _context.TarefasModel != null ?
+                        View(await _context.TarefasModel.ToListAsync()) :
+                        Problem("Entity set 'ControleTarefasContext.TarefasModel'  is null.");
         }
 
         public IActionResult Privacy()

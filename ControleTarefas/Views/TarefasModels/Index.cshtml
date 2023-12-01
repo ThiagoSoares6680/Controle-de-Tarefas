@@ -23,6 +23,8 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
+    if(item.StatusTarefa == 0)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
@@ -34,9 +36,22 @@
                 <a type="button" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Editar</a>
                 <a type="button" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Apagar</a>
                 <a type="button" asp-action="Details" asp-route-id="@item.ID" class="btn btn-info">Detalhes</a>
+                <a type="button" asp-controller="Home" asp-action="Index" asp-route-id="@item.ID" class="btn btn-success">Concluido</a>
             </td>
         </tr>
+    }
 }
     </tbody>
 </table>
 
+
+<script>
+    // Obtendo o elemento do botão pelo ID
+    var meuBotao = document.getElementById('meuBotao');
+
+    // Obtendo o valor do atributo 'asp-route-id'
+    var aspRouteId = meuBotao.getAttribute('asp-route-id');
+
+    // Exibindo o valor no console (você pode fazer o que quiser com o valor aqui)
+    console.log(aspRouteId);
+</script>

@@ -9,5 +9,6 @@ namespace ControleTarefas.Models
         public int ID { get; set; }
         public string Nome { get; set; } = string.Empty;
         public string Tarefa { get; set; } = string.Empty;
+        public int StatusTarefa { get; set; } = 0;
     }
 }
