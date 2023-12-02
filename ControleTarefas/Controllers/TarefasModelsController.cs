@@ -27,6 +27,40 @@ namespace ControleTarefas.Controllers
                           Problem("Entity set 'ControleTarefasContext.TarefasModel'  is null.");
         }
 
+        // POST: TarefasModels
+        [HttpPost]
+        public async Task<IActionResult> Index(int id, [Bind("StatusTarefa")] TarefasModel tarefasModel)
+        {
+            if (id == null || _context.TarefasModel == null)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var tarefas = await _context.TarefasModel.FindAsync(id);
+                    tarefas.StatusTarefa = 1;
+                    _context.Update(tarefas);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!TarefasModelExists(tarefasModel.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(tarefasModel);
+
+        }
+
         // GET: TarefasModels/Details/5
         public async Task<IActionResult> Details(int? id)
         {
